@@ -267,13 +267,7 @@ namespace NativeUI
         /// <param name="enable"></param>
         public static void DisEnableControls(bool enable)
         {
-            Hash thehash = enable ? Hash.ENABLE_CONTROL_ACTION : Hash.DISABLE_CONTROL_ACTION;
-            foreach (var con in Enum.GetValues(typeof(Control)))
-            {
-                Function.Call(thehash, 0, (int)con);
-                Function.Call(thehash, 1, (int)con);
-                Function.Call(thehash, 2, (int)con);
-            }
+            Function.Call(enable ? Hash.ENABLE_ALL_CONTROL_ACTIONS : Hash.DISABLE_ALL_CONTROL_ACTIONS, 2);
             //Controls we want
             // -Frontend
             // -Mouse
